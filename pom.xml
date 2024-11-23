@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>Dashboard+</name>
-    <description>FTC Dashboard with expanded with field recording and logcat errors</description>
+    <description>FTC Dashboard with expanded field recording and logcat errors</description>
     <url>https://github.com/6165-MSET-CuttleFish/dashboard-ftc</url>
 
     <licenses>
@@ -28,9 +28,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/username/my-library.git</connection>
-        <developerConnection>scm:git:ssh://github.com:username/my-library.git</developerConnection>
-        <url>https://github.com/username/my-library/tree/main</url>
+        <connection>scm:git:git://github.com/6165-MSET-CuttleFish/dashboard-ftc.git</connection>
+        <developerConnection>scm:git:ssh://github.com:6165-MSET-CuttleFish/dashboard-ftc.git</developerConnection>
+        <url>https://github.com/6165-MSET-CuttleFish/dashboard-ftc/tree/main</url>
     </scm>
 
     <distributionManagement>
@@ -52,6 +52,7 @@
 
     <build>
         <plugins>
+            <!-- Source Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -59,71 +60,40 @@
                 <executions>
                     <execution>
                         <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
+                        <goals><goal>jar-no-fork</goal></goals>
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Javadoc Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+                <executions><execution><id>attach-javadocs</id><goals><goal>jar</goal></goals></execution></executions></plugin>
+
+            <!-- GPG Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+                <executions><execution><id>sign-artifacts</id><phase>verify</phase><goals><goal>sign</goal></goals></execution></executions></plugin>
+
+            <!-- Nexus Staging Plugin -->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <configuration>
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
-                            <keyname>6C0585FDA26532FA0D05B06736646BF58EC845D6</keyname>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+                <artifactId>Nexus Staging Maven Plugin</artifactId>
+                <version>1.6.8</version><extensions>true</extensions><configuration><serverId>ossrh</serverId><nexusUrl>https://s01.oss.sonatype.org/</nexusUrl><autoReleaseAfterClose>true</autoReleaseAfterClose></configuration></plugin>
+
         </plugins>
+
+        <!-- Profiles -->
+        <profiles>
+            <!-- Profile for Sonatype OSS Release -->
+            <profile><id>sonatype-oss-release</id><properties><skipTests>true</skipTests></properties></profile>
+
+        </profiles>
+
     </build>
+
 </project>

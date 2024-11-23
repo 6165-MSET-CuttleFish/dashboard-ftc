@@ -1,0 +1,30 @@
+name: Publish to Maven Central
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers on version tags (e.g., v1.0.0)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'  # Specify the Java version you need
+          distribution: 'adopt'
+
+      - name: Decrypt GPG key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import --batch --yes
+
+      - name: Build and publish
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}  # Set GPG passphrase from secrets
+        run: |
+          mvn clean deploy -Psonatype-oss-release
