@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cuttlefish</groupId>
-    <artifactId>dashboard-plus</artifactId>
+    <artifactId>dashboard-ftc</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Dashboard+</name>
     <description>FTC Dashboard with expanded with field recording and logcat errors</description>
-    <url>https://github.com/6165-MSET-CuttleFish/ftc-dashboard</url>
+    <url>https://github.com/6165-MSET-CuttleFish/dashboard-ftc</url>
 
     <licenses>
         <license>
@@ -119,7 +119,7 @@
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
-                            <keyname>967EE1B53D367E9A2C012CCE4C63AFC927FAE738</keyname>
+                            <keyname>A0139C518750C2454B010366343897309C6C0B81</keyname>
                         </configuration>
                     </execution>
                 </executions>
