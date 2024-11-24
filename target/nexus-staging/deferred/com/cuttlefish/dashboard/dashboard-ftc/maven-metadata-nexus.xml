@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.cuttlefish.dashboard</groupId>
+  <artifactId>dashboard-ftc</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20241124082139</lastUpdated>
+  </versioning>
+</metadata>
