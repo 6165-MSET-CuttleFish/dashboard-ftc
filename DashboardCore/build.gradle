@@ -36,7 +36,7 @@ project.afterEvaluate {
                 artifact sourcesJar
 
                 groupId = "com.cuttlefish.dashboard"
-                artifactId = "core"
+                artifactId = "DashboardCore"
                 version dashboard_version
 
                 pom {
