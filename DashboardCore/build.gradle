@@ -35,14 +35,14 @@ project.afterEvaluate {
                 artifact jar
                 artifact sourcesJar
 
-                groupId = "com.acmerobotics.dashboard"
+                groupId = "com.cuttlefish.dashboard"
                 artifactId = "core"
                 version dashboard_version
 
                 pom {
                     description = "Web dashboard designed for FTC"
                     name = "FTC Dashboard"
-                    url = "https://github.com/acmerobotics/ftc-dashboard"
+                    url = "https://github.com/6165-MSET-CuttleFish/dashboard-ftc"
 
                     licenses {
                         license {
@@ -54,14 +54,14 @@ project.afterEvaluate {
 
                     developers {
                         developer {
-                            id = "rbrott"
-                            name = "Ryan Brott"
-                            email = "rcbrott@gmail.com"
+                            id = "6165-MSET-CuttleFish"
+                            name = "6165 MSET CuttleFish"
+                            email = "msetcuttlefish6165@gmail.com"
                         }
                     }
 
                     scm {
-                        url = "https://github.com/acmerobotics/ftc-dashboard"
+                        url = "https://github.com/6165-MSET-CuttleFish/dashboard-ftc"
                     }
                 }
             }
